@@ -1941,3 +1941,9 @@ section {
 .offerings-section .container .row .boxes{
  flex-basis: fit-content;
 }
+/* table  */
+
+.table-container {
+  width: 50%;
+  margin: 150px auto; 
+}

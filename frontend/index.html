@@ -14,8 +14,8 @@
     name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/main_logo.png" rel="icon">
-  <link href="assets/img/main_logo.png" rel="apple-touch-icon"> 
+  <link href="./assets/img/main_logo.png" rel="icon">
+  <link href="./assets/img/main_logo.png" rel="apple-touch-icon"> 
 
   <!-- Google Fonts -->
   <link
@@ -23,14 +23,14 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/css/aos.css" rel="stylesheet">
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/icons/remixicon.css" rel="stylesheet">
-  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="./assets/css/form.css">  
+  <link href="./assets/css/aos.css" rel="stylesheet">
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/glightbox.min.css" rel="stylesheet">
+  <link href="./assets/icons/remixicon.css" rel="stylesheet">
+  <link href="./assets/css/swiper-bundle.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -42,7 +42,7 @@
 
       <h1 id="logo_resizer" class="logo me-auto">     
         <a href="index.html">
-          <img class="logo" src="assets/img/vriksha.png" alt="header_logo" />       
+          <img class="logo" src="./assets/img/vriksha.png" alt="header_logo" />       
         </a>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero-img.svg" class="img-fluid animated" alt=""> 
+          <img src="./assets/img/hero-img.svg" class="img-fluid animated" alt=""> 
         </div>
       </div>
     </div>
@@ -171,8 +171,37 @@
               <strong>Tel:</strong> <a href="tel:72003 42512">72003 42512</a> 
             </p>
           </div>
-
-
+          <div class="form-container">
+            <form class="form" id="form"> 
+              <div class="float-left">  
+                <div class="form-group">
+                  <label for="fname">Name</label>
+                  <input type="text" name="fname" placeholder="First Name" class="form-control" data-name="name">
+                  <span class="err-txt">Please fill in first name.</span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" placeholder="Email" class="form-control">
+                  <span class="err-txt">Please fill in email.</span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" name="phone" placeholder="Phone" class="form-control">
+                  <span class="err-txt">Please fill in phone number.</span>
+                </div>  
+              </div>
+              <div class="float-left">
+                <div class="form-group">
+                  <label for="textarea">Message</label>
+                  <textarea name="textarea" id="" cols="30" rows="10" placeholder="Text" class="form-control"></textarea>
+                  <span class="err-txt">Please fill in some text</span>
+                </div>
+                <div class="form-group">
+                  <input class="btn btn-primary" type="submit" value="Send" class="btn-submit">
+                </div>
+              </div>
+            </form>
+          </div>  
           <!-- <div class="col-lg-6 col-md-6 footer-links">
             <h4>Our Social Networks</h4>  
             <div class="social-links mt-3">
@@ -201,13 +230,15 @@
   </a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/glightbox.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+  <script src="./assets/js/form.js"></script>
+  <script src="./assets/js/aos.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/glightbox.min.js"></script>
+  <script src="./assets/js/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

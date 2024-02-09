@@ -1,53 +1,38 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
-// Middleware to parse JSON and URL-encoded data
+// Dummy data array to store form submissions
+let formDataArray = [];
+
+app.use(cors({  
+  origin: 'http://127.0.0.1:5500'   
+}));    
+
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
-// Configure nodemailer with your email service
-const transporter = nodemailer.createTransport({
-  service: 'YourEmailService', // e.g., 'gmail'
-  auth: {
-    user: 'your-email@example.com',
-    pass: 'your-email-password'
-  }
+// Endpoint to handle POST requests and push form data into the array
+app.post('/endpoint', (req, res) => {
+    const formData = req.body;
+
+    // Push the received form data into the array
+    formDataArray.push(formData);
+
+    // Do whatever processing you want with the form data
+    console.log('Received form data:', formData);
+
+    res.status(200).send('Form data received successfully');
 });
 
-// Endpoint to handle form submission
-app.post('/submit-form', (req, res) => {
-  const { name, email, phone, message } = req.body;
-
-  // Construct the email message
-  const mailOptions = {
-    from: 'your-email@example.com',
-    to: 'recipient@example.com',
-    subject: 'New Form Submission',
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Phone: ${phone}
-      Message: ${message}
-    `
-  };
-
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      res.status(500).send('Error sending email');
-    } else {
-      console.log('Email sent:', info.response);
-      res.send('Form submitted successfully!');
-    }
-  });
+// Endpoint to handle GET requests and return the form data array
+app.get('/formData', (req, res) => {
+    res.json(formDataArray);
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);        
 });
